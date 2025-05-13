@@ -1,46 +1,58 @@
-# Getting Started with Create React App
+# Image to Speech Converter
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern web app to extract text from images and convert it to speech, built with React, TypeScript, Tailwind CSS, and Tesseract.js.
 
-## Available Scripts
+## Features
+- Upload an image and extract text using OCR (Tesseract.js)
+- Convert extracted text to speech using your browser's voices
+- Modern, responsive UI with voice selection and speech controls
+- Built with best practices and a clean, accessible design
 
-In the project directory, you can run:
+## Getting Started
 
-### `npm start`
+1. **Clone the repo:**
+   ```bash
+   git clone https://github.com/yourusername/image-to-speech.git
+   cd image-to-speech
+   ```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+3. **Start the app:**
+   ```bash
+   npm start
+   ```
 
-### `npm test`
+4. **Open in your browser:**
+   - Go to [http://localhost:3000](http://localhost:3000)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## How This Code Works
 
-### `npm run build`
+### Architecture & Main Components
+- **App.tsx**: The main entry point. Renders the header and the `ImageToSpeech` component.
+- **ImageToSpeech.tsx**: Handles all core functionality:
+  - **Image Upload**: Lets users upload an image. Shows a preview in a styled box.
+  - **OCR (Text Extraction)**: Uses Tesseract.js to extract text from the uploaded image asynchronously.
+  - **Text Display**: Shows the extracted text in a static, styled box next to the image.
+  - **Text-to-Speech**: Uses the Web Speech API to convert the extracted text to speech. Users can select a voice, and control playback (play, pause, resume, stop).
+  - **Modern UI**: Uses Tailwind CSS for a responsive, accessible, and visually appealing layout.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Flow
+1. User uploads an image (or drags and drops).
+2. The app shows a preview and starts OCR processing.
+3. Extracted text appears in the right box.
+4. User selects a voice and clicks "Convert to Speech" to hear the text spoken aloud.
+5. Playback controls allow pausing, resuming, or stopping the speech.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Tech Stack
+- React + TypeScript
+- Tailwind CSS
+- Tesseract.js
+- Web Speech API
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+**No `requirements.txt` is needed. Use `npm install` to set up the project.**
