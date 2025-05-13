@@ -55,4 +55,3 @@ A modern web app to extract text from images and convert it to speech, built wit
 
 ---
 
-**No `requirements.txt` is needed. Use `npm install` to set up the project.**
