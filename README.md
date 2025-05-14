@@ -12,8 +12,8 @@ A modern web app to extract text from images and convert it to speech, built wit
 
 1. **Clone the repo:**
    ```bash
-   git clone https://github.com/yourusername/image-to-speech.git
-   cd image-to-speech
+   git clone https://github.com/Selwynuy/Image-to-Text-to-Speech-Recoginition.git
+   cd Image-to-Text-to-Speech-Recoginition
    ```
 
 2. **Install dependencies:**
