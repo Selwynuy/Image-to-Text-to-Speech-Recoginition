@@ -171,7 +171,7 @@ const ImageToSpeech: React.FC = () => {
             disabled={!isSpeaking || isPaused}
             title="Pause"
           >
-            <FaPause />
+            Pause
           </button>
           <button
             className="bg-green-500 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-xl shadow-md disabled:opacity-50 transition flex items-center justify-center"
@@ -179,7 +179,7 @@ const ImageToSpeech: React.FC = () => {
             disabled={!isSpeaking || !isPaused}
             title="Resume"
           >
-            <FaPlay />
+            Play
           </button>
           <button
             className="bg-red-500 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-xl shadow-md disabled:opacity-50 transition flex items-center justify-center"
@@ -187,7 +187,7 @@ const ImageToSpeech: React.FC = () => {
             disabled={!isSpeaking}
             title="Stop"
           >
-            <FaStop />
+            Stop
           </button>
         </div>
       </div>
