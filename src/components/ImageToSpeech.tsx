@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { createWorker } from 'tesseract.js';
-import { FaPause, FaPlay, FaStop } from 'react-icons/fa';
 
 const ImageToSpeech: React.FC = () => {
   const [image, setImage] = useState<string | null>(null);
@@ -12,7 +11,7 @@ const ImageToSpeech: React.FC = () => {
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const utteranceRef = useRef<SpeechSynthesisUtterance | null>(null);
-  const textBoxRef = useRef<HTMLDivElement>(null);
+  const textBoxRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
     const populateVoices = () => {
@@ -109,6 +108,10 @@ const ImageToSpeech: React.FC = () => {
     setIsPaused(false);
   };
 
+  const handleTextChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setExtractedText(event.target.value);
+  };
+
   return (
     <div className="container mx-auto p-8 bg-white rounded-2xl shadow-xl mt-8 max-w-7xl">
       <div className="space-y-8">
@@ -136,12 +139,16 @@ const ImageToSpeech: React.FC = () => {
               </div>
             )}
           </div>
-          {/* Right: Static Text Box */}
-          <div
-            ref={textBoxRef}
-            className="w-full h-full min-h-[500px] min-w-[500px] max-w-[700px] max-h-[700px] p-6 border-2 border-blue-200 rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100 shadow-lg overflow-y-auto text-gray-800 text-lg whitespace-pre-wrap aspect-square text-left"
-          >
-            {extractedText || <span className="text-gray-400">Extracted text will appear here...</span>}
+          {/* Right: Editable Text Box */}
+          <div className="w-full h-full min-h-[500px] min-w-[500px] max-w-[700px] max-h-[700px] p-6 border-2 border-blue-200 rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100 shadow-lg overflow-y-auto text-gray-800 text-lg aspect-square text-left">
+            <textarea
+              ref={textBoxRef}
+              value={extractedText}
+              onChange={handleTextChange}
+              placeholder="Type or paste your text here..."
+              className="w-full h-full bg-transparent border-none outline-none resize-none"
+              style={{ minHeight: '450px' }}
+            />
           </div>
         </div>
         <div className="flex flex-col md:flex-row md:items-center md:space-x-4 space-y-4 md:space-y-0 justify-center mt-8">
